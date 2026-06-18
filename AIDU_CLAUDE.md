@@ -1,6 +1,3 @@
-# CLAUDE.md — AIDU (AI Education Platform)
-
-This file gives Claude Code the full context for building AIDU. Read it before generating code.
 
 ## What we are building
 AIDU is a mobile-first web app that helps people learn AI, discover the right AI tools, find AI-related jobs, and connect with others, all in one place. The core insight from our user research: people do not want to juggle many separate AI tools and scattered resources. They want a single, personalized hub that meets them at their skill level and field.
@@ -59,35 +56,3 @@ Defer to later phases: Marketplace, Jobs, News, Search, and Pages. Stub these as
 - **AI tutor chat:** answer the user's AI questions, adapted to their skill level.
 - **Tool recommendations (later):** suggest AI tools from the marketplace matched to the user's field and goals.
 Ground every AI response in the user's stored profile (type, skill, interests). Never put the API key in client code.
-
-## Suggested data model (Supabase)
-- `profiles`: id, user_type ('student' | 'professional'), skill_level, field, interests (array), display_name.
-- `learning_paths`: id, user_id, title, steps (jsonb), created_at.
-- `posts`: id, author_id, title, body, created_at (for Learning Hub / Pages).
-- `tools`: id, name, category, description, rating (for Marketplace, later).
-- `jobs`: id, title, company, description, tags (for Jobs, later).
-
-## Conventions
-- Server components by default; use client components only where interaction requires it.
-- Keep all Claude API calls server-side (API route or server action).
-- Use TypeScript.
-- Match the dark theme and purple accent from the design frames.
-- Commit often with clear messages.
-
-## Commands (fill in once scaffolded)
-- `npm run dev` — start dev server
-- `npm run build` — production build
-- `npm run lint` — lint
-
-## Build order for Claude Code
-1. Scaffold Next.js + Tailwind + Supabase; set up the dark theme and bottom nav shell.
-2. Implement auth (Create Account, Reset Password) with Supabase.
-3. Build onboarding (interests + skill level + user type) and save to `profiles`.
-4. Build the Dashboard / Home shell with placeholder sections.
-5. Build the Learning Hub and wire in the first Claude API feature (personalized path or tutor).
-6. Deploy to Vercel.
-7. Then iterate: Marketplace, Jobs, News, Search, Pages.
-
-## Notes
-- Design frames are in the `/design` folder. Feed them to Claude Code one screen at a time when building that screen.
-- This is a portfolio and hackathon-origin project (Rice Design-a-thon 2025). Keep it clean and demo-ready.
